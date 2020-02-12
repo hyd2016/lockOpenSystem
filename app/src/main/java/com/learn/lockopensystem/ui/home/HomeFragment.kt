@@ -9,11 +9,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.learn.lockopensystem.R
+import com.learn.lockopensystem.model.DataCenter
+import com.learn.lockopensystem.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var adapter: MyLockAdapter
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -23,11 +26,18 @@ class HomeFragment : Fragment() {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        homeViewModel.locks.observe(
+
+        homeViewModel.locks?.observe(
             viewLifecycleOwner, Observer {
                 my_lock.layoutManager = LinearLayoutManager(context)
                 it?.let {
-                    my_lock.adapter = MyLockAdapter(it)
+                    adapter = MyLockAdapter(it)
+                    my_lock.adapter = adapter
+                    adapter.setOnClickListener(object : MyLockAdapter.OnClickListener{
+                        override fun setClickListener(lockId: String) {
+                            DetailActivity.startDetail(context!!, DataCenter.oauthResult!!.token, lockId)
+                        }
+                    })
                 }
 
             }

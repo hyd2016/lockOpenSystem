@@ -18,4 +18,12 @@
     <string name="lock_status">状态:</string>
     <string name="lock_status_code">关闭</string>
     <string name="update_time">2019/12/17 13:47:05</string>
+    <string name="open_lock">开锁</string>
+    <string name="change_lock_name">更改锁名称</string>
+    <string name="lock_record">查询开锁记录</string>
+    <string name="lock_alarm_record">查询告警记录</string>
+    <string name="delete_lock">删除锁</string>
+    <string name="user_id">开锁用户ID:</string>
+    <string name="user_id_num">1</string>
+    <string name="alarm_message">锁编号2，测试报警</string>
 </resources>

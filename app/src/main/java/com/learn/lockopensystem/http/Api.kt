@@ -34,11 +34,13 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("/dellock.asp")
-    fun delLock(@FieldMap params: Map<String, String>): Observable<Result>
+    fun delLock(@Field("token") token: String, @Field("lockid") lockid: String): Observable<Result>
 
     @FormUrlEncoded
     @POST("/changelockname.asp")
-    fun changeLockName(@FieldMap params: Map<String, String>): Observable<Result>
+    fun changeLockName(@Field("token") token: String,
+                       @Field("lockid") lockid: String,
+                       @Field("lockname") lockname: String): Observable<Result>
 
     @FormUrlEncoded
     @POST("/lockopen.asp")
