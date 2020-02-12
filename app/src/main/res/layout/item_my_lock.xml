@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="10dp"
+    android:layout_marginStart="10dp">
+
+    <TextView
+        android:id="@+id/lock_id"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:layout_marginEnd="15dp"
+        android:textSize="14sp"
+        android:background="@drawable/bg_round_rec" />
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/lock_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/lock_name"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:text="@string/lock_status"/>
+            <TextView
+                android:id="@+id/lock_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lock_status_code"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/lock_update_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/update_time"/>
+
+    </LinearLayout>
+
+</LinearLayout>

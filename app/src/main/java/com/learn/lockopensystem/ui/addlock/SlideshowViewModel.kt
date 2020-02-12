@@ -1,4 +1,4 @@
-package com.learn.lockopensystem.ui.slideshow
+package com.learn.lockopensystem.ui.addlock
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
