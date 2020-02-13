@@ -1,4 +1,5 @@
 package com.learn.lockopensystem.model.getresult
+
 /*
 获取用户信息
  */

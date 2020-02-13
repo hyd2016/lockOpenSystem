@@ -10,15 +10,20 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("/register.asp")
-    fun register(@FieldMap params: Map<String, String>): Observable<Result>
+    fun register(@Field("phonenum") phonenum: String,
+                 @Field("smscode") smscode: String,
+                 @Field("password") password: String,
+                 @Field("nickname") nickname: String): Observable<Result>
 
     @FormUrlEncoded
     @POST("/resetpass.asp")
-    fun resetPassword(@FieldMap params: Map<String, String>): Observable<Result>
+    fun resetPassword(@Field("phonenum") phonenum: String,
+                      @Field("smscode") smscode: String,
+                      @Field("password") password: String): Observable<Result>
 
     @FormUrlEncoded
     @POST("/login.asp")
-    fun login(@FieldMap params: Map<String, String>): Observable<OauthResult>
+    fun login(@Field("phonenum") phonenum: String, @Field("password") password: String): Observable<OauthResult>
 
     @FormUrlEncoded
     @POST("/getuserinfo.asp")
@@ -38,9 +43,11 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("/changelockname.asp")
-    fun changeLockName(@Field("token") token: String,
-                       @Field("lockid") lockid: String,
-                       @Field("lockname") lockname: String): Observable<Result>
+    fun changeLockName(
+        @Field("token") token: String,
+        @Field("lockid") lockid: String,
+        @Field("lockname") lockname: String
+    ): Observable<Result>
 
     @FormUrlEncoded
     @POST("/lockopen.asp")

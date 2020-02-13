@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.item_lock_open_record.view.*
 class LockOpenRecordAdapter(private val openrecords: List<Openrecord>) :
     RecyclerView.Adapter<LockOpenRecordAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lock_open_record, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_lock_open_record, parent, false)
         return ViewHolder(view)
     }
 

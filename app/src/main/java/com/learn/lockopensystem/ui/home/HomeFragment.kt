@@ -19,12 +19,12 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: MyLockAdapter
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel::class.java)
+            ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
         homeViewModel.locks?.observe(
@@ -33,9 +33,13 @@ class HomeFragment : Fragment() {
                 it?.let {
                     adapter = MyLockAdapter(it)
                     my_lock.adapter = adapter
-                    adapter.setOnClickListener(object : MyLockAdapter.OnClickListener{
+                    adapter.setOnClickListener(object : MyLockAdapter.OnClickListener {
                         override fun setClickListener(lockId: String) {
-                            DetailActivity.startDetail(context!!, DataCenter.oauthResult!!.token, lockId)
+                            DetailActivity.startDetail(
+                                context!!,
+                                DataCenter.oauthResult!!.token,
+                                lockId
+                            )
                         }
                     })
                 }

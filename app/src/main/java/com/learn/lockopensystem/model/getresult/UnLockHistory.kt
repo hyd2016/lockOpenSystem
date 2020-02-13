@@ -1,4 +1,5 @@
 package com.learn.lockopensystem.model.getresult
+
 /*
  查询开锁记录
  */

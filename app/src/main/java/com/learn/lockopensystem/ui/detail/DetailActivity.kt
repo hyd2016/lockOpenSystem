@@ -93,14 +93,19 @@ class DetailActivity : AppCompatActivity() {
     private fun changeNameDialog() {
         val editText = EditText(this)
         val builder = AlertDialog.Builder(this).setTitle("请输入新的锁名称").setView(editText)
-            .setPositiveButton("确定"
+            .setPositiveButton(
+                "确定"
             ) { _, _ ->
                 NetworkHelper.getRetrofit().changeLockName(token, lockId, editText.text.toString())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                         {
-                            Toast.makeText(this, ErrorCode.getErrorInfo(it.result), Toast.LENGTH_LONG)
+                            Toast.makeText(
+                                this,
+                                ErrorCode.getErrorInfo(it.result),
+                                Toast.LENGTH_LONG
+                            )
                                 .show()
                         },
                         {
@@ -109,7 +114,8 @@ class DetailActivity : AppCompatActivity() {
                         }
                     )
             }
-            .setNegativeButton("取消"
+            .setNegativeButton(
+                "取消"
             ) { dialog, _ -> dialog?.dismiss() }
         builder.create().show()
     }

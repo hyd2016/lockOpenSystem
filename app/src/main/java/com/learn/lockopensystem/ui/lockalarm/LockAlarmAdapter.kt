@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.item_lock_alarm.view.*
 class LockAlarmAdapter(private val alarms: List<Alarm>) :
     RecyclerView.Adapter<LockAlarmAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lock_alarm, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_lock_alarm, parent, false)
         return ViewHolder(view)
     }
 

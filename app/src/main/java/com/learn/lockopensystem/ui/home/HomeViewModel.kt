@@ -9,6 +9,7 @@ import com.learn.lockopensystem.model.getresult.Lock
 class HomeViewModel : ViewModel() {
 
     var locks: MutableLiveData<MutableList<Lock>>? = null
+
     init {
         DataCenter.locks?.let {
             locks = it
