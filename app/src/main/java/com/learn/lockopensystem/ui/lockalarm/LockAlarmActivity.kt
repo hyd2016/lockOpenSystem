@@ -2,10 +2,10 @@ package com.learn.lockopensystem.ui.lockalarm
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.learn.lockopensystem.R
 import com.learn.lockopensystem.http.NetworkHelper
@@ -14,7 +14,7 @@ import com.learn.lockopensystem.ui.lockopenrecord.LockOpenRecordActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_lock_open_record.*
+import kotlinx.android.synthetic.main.activity_lock_alarm.*
 
 class LockAlarmActivity : AppCompatActivity() {
 
@@ -44,14 +44,14 @@ class LockAlarmActivity : AppCompatActivity() {
         token = intent.getStringExtra("token")
         lockId = intent.getStringExtra("lockId")
 
-        lock_open_record.layoutManager = LinearLayoutManager(this)
+        lock_alarm.layoutManager = LinearLayoutManager(this)
         disposable = NetworkHelper.getRetrofit().getLockAlarm(token, lockId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
                     if (it.result == 0) {
-                        lock_open_record.adapter = LockAlarmAdapter(it.alarm)
+                        lock_alarm.adapter = LockAlarmAdapter(it.alarm)
                     }
                     Toast.makeText(this, ErrorCode.getErrorInfo(it.result), Toast.LENGTH_LONG)
                         .show()

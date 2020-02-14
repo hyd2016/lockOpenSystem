@@ -63,6 +63,10 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("/getnewalarm.asp")
-    fun getNewAlarm(@Field("token") token: String, @Field("lockid") lockid: String): Observable<NewWarningInfo>
+    fun getNewAlarm(@Field("token") token: String): Observable<NewWarningInfo>
+
+    @FormUrlEncoded
+    @POST("/addlock.asp")
+    fun addLock(@Field("lockid") lockid: String, @Field("lockpass") lockpass: String, @Field("token") token: String): Observable<Result>
 
 }

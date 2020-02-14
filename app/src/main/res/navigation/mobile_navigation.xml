@@ -13,20 +13,20 @@
 
     <fragment
         android:id="@+id/nav_add_lock"
-        android:name="com.learn.lockopensystem.ui.addlock.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.learn.lockopensystem.ui.addlock.AddBlockFragment"
+        android:label="@string/menu_add_lock"
+        tools:layout="@layout/fragment_addlock" />
 
     <fragment
-        android:id="@+id/nav_reset_pw"
-        android:name="com.learn.lockopensystem.ui.resetpassword.ToolsFragment"
-        android:label="@string/menu_add_lock"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/get_new_alarm"
+        android:name="com.learn.lockopensystem.ui.newalarm.NewAlarmFragment"
+        android:label="@string/get_new_alarm"
+        tools:layout="@layout/fragment_new_alarm" />
 
 
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.learn.lockopensystem.ui.logout.SendFragment"
+        android:name="com.learn.lockopensystem.ui.logout.LogoutFragment"
         android:label="@string/menu_logout"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_logout" />
 </navigation>

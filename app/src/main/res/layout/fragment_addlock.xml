@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/add_lock" />
+
+    <EditText
+        android:id="@+id/et_add_lock_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:hint="请输入锁编号"
+        android:paddingStart="10dp" />
+
+    <EditText
+        android:id="@+id/et_add_lock_psw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:hint="请输入锁密码"
+        android:paddingStart="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_add_camera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="25dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_register"
+            android:drawableStart="@drawable/ic_camera_add_lock"
+            android:gravity="left|center_vertical"
+            android:text="点击识别"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_add_lock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_register"
+            android:gravity="center"
+            android:text="添加锁"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>
