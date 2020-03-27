@@ -3,6 +3,7 @@ package com.learn.lockopensystem.ui.addlock
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -78,9 +79,50 @@ class AddBlockFragment : Fragment() {
                 Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(context, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
+                addBloc(result.contents)
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
+        }
+    }
+    private fun addBloc(result:String){
+        val id_pw = result.split('&')
+        if (id_pw.size != 2){
+            return
+        }
+        val lockId = id_pw[0].substring(id_pw[0].indexOf('=') + 1)
+        val lockPsw = id_pw[1].substring(id_pw[1].indexOf('=') + 1)
+        when {
+            TextUtils.isEmpty(lockId) -> {
+                Toast.makeText(context, "锁编号为空", Toast.LENGTH_LONG).show()
+            }
+            TextUtils.isEmpty(lockPsw) -> {
+                Toast.makeText(context, "锁密码为空", Toast.LENGTH_LONG).show()
+            }
+            else -> {
+                if (DataCenter.oauthResult == null) {
+                    Toast.makeText(context, "添加失败", Toast.LENGTH_LONG).show()
+                    return
+                }
+                NetworkHelper.getRetrofit()
+                    .addLock(lockId, lockPsw, DataCenter.oauthResult?.token!!)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                        {
+                            Toast.makeText(
+                                context,
+                                ErrorCode.getErrorInfo(it.result),
+                                Toast.LENGTH_LONG
+                            )
+                                .show()
+                        },
+                        {
+                            Toast.makeText(context, "网络请求失败了呀！", Toast.LENGTH_LONG).show()
+                            Log.d("addlock", it.toString())
+                        }
+                    )
+            }
         }
     }
 }
